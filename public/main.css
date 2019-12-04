@@ -4,7 +4,7 @@ body, .tooltip
 }
 
 .header-bar {
-  background-color: #292929;
+  background-color:#007bff;
 }
 
 .container--narrow {
@@ -58,14 +58,14 @@ body, .tooltip
 }
 
 .input-dark {
-  background-color: #444;
+  background-color: rgb(255, 255, 255);
   border-color: transparent;
-  color: #FFFFFF;
+  color: rgb(0, 0, 0);
 }
 
 .input-dark:focus {
-  color: #FFFFFF;
-  background-color: #555;
+  color: rgb(0, 0, 0);
+  background-color: rgb(255, 255, 255);
   border-color: #80bdff;
   outline: 0;
   box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);

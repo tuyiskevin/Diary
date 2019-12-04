@@ -4,9 +4,12 @@ const userCollection = require('../db').db().collection('users');
 const md5 = require('md5');
 
 //bluepting for a user
-let User = function(data){
+let User = function(data, getAvatar){
     this.data= data;
     this.err = [];
+
+    if(getAvatar == undefined){getAvatar = false;}
+    if (getAvatar){this.setAvatar();}
 
 };
 
@@ -84,7 +87,6 @@ User.prototype.register = function(){
     //in case of err
   
     //store in database
-  
     if(!this.err.length){
       let salt = bcrypt.genSaltSync(10);
       this.data.password = bcrypt.hashSync(this.data.password, salt);
@@ -99,7 +101,32 @@ User.prototype.register = function(){
 };
 
 User.prototype.setAvatar = function(){
-  this.avatar =  `https://gravatar.com/avatar/${md5(this.data.email)}?s=128`;
+  this.avatar = `https://gravatar.com/avatar/${md5(this.data.email)}?s=128`;
+};
+
+User.findByUsername = function(username){
+return new Promise((resolve, reject)=>{
+    if(typeof(username) != "string"){
+      reject();
+      return;
+    }
+    userCollection.findOne({username: username}).then((userDoc)=>{
+      
+        if(userDoc){
+          userDoc = new User(userDoc, true);
+          userDoc = {
+            _id:userDoc.data._id,
+            username:userDoc.data.username,
+            avatar: userDoc.avatar
+          };
+          resolve(userDoc);
+        }else{
+            reject();
+        }
+    }).catch(()=>{
+      reject();
+    });
+});
 };
 
 module.exports = User;

@@ -8,7 +8,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "kCode",
+  "author": "Kevin Tuyishime",
   "license": "ISC",
   "dependencies": {
     "@babel/core": "^7.5.5",
@@ -24,6 +24,7 @@
     "dompurify": "^1.0.11",
     "dotenv": "^8.1.0",
     "ejs": "^2.6.2",
+    "eslint": "^6.4.0",
     "express": "^4.17.1",
     "express-session": "^1.16.2",
     "jsonwebtoken": "^8.5.1",
