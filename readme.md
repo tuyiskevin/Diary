@@ -1,4 +1,4 @@
-# Diary App
+# Online Diary
 ## Background
 Diary App is a simple web application that lets users post their diary posts and share them within their friend's circle. 
 The app also allows users to manage their posts as well as follow and unfollow their readers. They also have the ability to 
